@@ -2,6 +2,8 @@
 
 #define OUT_PIN 3
 #define IN_PIN 0
+#define THRESHOLD 622
+#define OUTOFRANGE 572
 
 // clear bit and set bit
 #ifndef cbi
@@ -95,7 +97,7 @@ void setup()
 void loop() {
   
   unsigned int sensorValue = analogNext();
-  if (sensorValue >= 622|| sensorValue < 572) {
+  if (sensorValue >= THRESHOLD|| sensorValue < OUTOFRANGE) {
     digitalWriteD(OUT_PIN, 0);
   }
   else {
