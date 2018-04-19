@@ -3,7 +3,7 @@
 #define OUT_PIN 3
 #define IN_PIN 0
 #define THRESHOLD 622
-#define OUTOFRANGE 572
+#define OUTOFRANGE THRESHOLD-50
 
 // clear bit and set bit
 #ifndef cbi
@@ -83,7 +83,7 @@ void setup()
   ADCSRB = ADCSRB & 0xf8;
 
   // setup pin 3 as output
-  pinMode(3,OUTPUT);
+  pinMode(OUT_PIN,OUTPUT);
 
   // enable autotrigger
   sbi(ADCSRA, ADATE);
